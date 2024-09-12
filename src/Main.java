@@ -1,5 +1,6 @@
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Set;
 import java.util.Stack;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -59,20 +60,23 @@ public class Main {
     }
 
 
+
+
+
+
     public static boolean containsDuplicate(int[] nums) {
 
         HashSet<Integer> set = new HashSet<>();
 
         for (int num : nums) {
 
-            if (!(set.contains(num))) {
-                set.add(num);
-            } else {
-                return true;
-            }
+            boolean noDuplicate = set.add(num);
+            if (noDuplicate) continue;
+            return true;
         }
-        return false  ;
+        return false    ;
     }
+
 
 
     public  static boolean isAnagram(String s, String t) {
@@ -148,7 +152,9 @@ public class Main {
 
     public static int findClosestNumber(int[] nums) {
 
-        int cloestNumber =  Integer.MAX_VALUE - Math.abs(nums[0]) ;
+
+
+        int cloestNumber = nums[0];
 
         for (int num : nums) {
 
